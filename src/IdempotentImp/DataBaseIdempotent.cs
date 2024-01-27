@@ -17,7 +17,7 @@ namespace Taurus.Plugin.Idempotent
             this.tableName = tableName;
             this.conn = conn;
         }
-        public override IdempotentType LockType
+        public override IdempotentType IdempotentType
         {
             get
             {
@@ -80,14 +80,8 @@ namespace Taurus.Plugin.Idempotent
     }
     internal partial class DataBaseIdempotent
     {
-        public override bool Lock(string key)
-        {
-            return Lock(key, 0);
-        }
-
         public override bool Lock(string key, double keepMinutes)
         {
-            key = "I_" + key;
             string flag = ProcessID + "," + Thread.CurrentThread.ManagedThreadId + "," + key;
             return AddAll(key, flag, keepMinutes);
         }

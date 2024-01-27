@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
 	  <AssemblyName>Taurus.Idempotent</AssemblyName>
 	  <RootNamespace>Taurus.Idempotent</RootNamespace>
 	  <Authors>路过秋天</Authors>
@@ -14,6 +14,7 @@
 	  <AssemblyTitle>Taurus.Idempotent 幂等性锁 .NET Core 版本</AssemblyTitle>
 	  <AssemblyVersion>2.0.0.0</AssemblyVersion>
 	  <FileVersion>2.0.0.0</FileVersion>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\cyqdata.git\cyqdata\src\CYQ.Data_NetCore.csproj" />
+    <PackageReference Include="cyqdata" Version="5.9.0.6" />
   </ItemGroup>
 
 </Project>

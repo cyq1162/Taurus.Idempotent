@@ -1,4 +1,5 @@
 ﻿using CYQ.Data.Cache;
+using System.Threading;
 
 namespace Taurus.Plugin.Idempotent
 {
@@ -13,7 +14,7 @@ namespace Taurus.Plugin.Idempotent
                 return _instance;
             }
         }
-        public override IdempotentType LockType
+        public override IdempotentType IdempotentType
         {
             get
             {
@@ -21,16 +22,10 @@ namespace Taurus.Plugin.Idempotent
             }
         }
 
-
-        public override bool Lock(string key)
-        {
-            return Lock(key, 0);
-        }
-
         public override bool Lock(string key, double keepMinutes)
         {
-            key = "I_" + key;
-            return DistributedCache.MemCache.SetNXAll(key, "1", keepMinutes);
+            string flag = ProcessID + "," + Thread.CurrentThread.ManagedThreadId + "," + key;
+            return DistributedCache.MemCache.SetNXAll(key, flag, keepMinutes);
         }
         public override void Remove(string key)
         {

@@ -63,7 +63,7 @@ namespace Taurus.Plugin.Idempotent
         }
 
         /// <summary>
-        /// Local 单机内 文件锁【可跨进程或线程释放】
+        /// 文件锁【可跨进程或线程释放】
         /// </summary>
         public static Idempotent File
         {
@@ -123,19 +123,13 @@ namespace Taurus.Plugin.Idempotent
         /// <summary>
         /// 锁类型
         /// </summary>
-        public abstract IdempotentType LockType { get; }
+        public abstract IdempotentType IdempotentType { get; }
 
         /// <summary>
         /// 幂等性
         /// </summary>
         /// <param name="key">key</param>
-        /// <returns></returns>
-        public abstract bool Lock(string key);
-        /// <summary>
-        /// 幂等性
-        /// </summary>
-        /// <param name="key">key</param>
-        /// <param name="keepMinutes">数据保留时间，单位分钟，0 则永久。</param>
+        /// <param name="keepMinutes">数据保留时间。</param>
         /// <returns></returns>
         public abstract bool Lock(string key, double keepMinutes);
 

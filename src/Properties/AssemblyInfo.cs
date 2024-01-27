@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Taurus.DistributedLock 分布式锁 .NET 版本")]
-[assembly: AssemblyDescription("Taurus.DistributedLock is a distributed lock for .net or .net core.【支持：Local、File、Redis、MemCache、Database 五类锁】")]
+[assembly: AssemblyTitle("Taurus.Idempotent 幂等性 .NET 版本")]
+[assembly: AssemblyDescription("Taurus.Idempotent is a idempotent lock for .net or .net core.【支持：Redis、MemCache、Database、File 四种存储】")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("路过秋天 （2024-01-25）")]
-[assembly: AssemblyProduct("Taurus.DistributedLock")]
+[assembly: AssemblyCompany("路过秋天 （2024-01-27）")]
+[assembly: AssemblyProduct("Taurus.Idempotent")]
 [assembly: AssemblyCopyright("版权所有 (C) 路过秋天 2024-2124")]
-[assembly: AssemblyTrademark("Taurus.DistributedLock")]
+[assembly: AssemblyTrademark("Taurus.Idempotent")]
 [assembly: AssemblyCulture("")]
 
 // 将 ComVisible 设置为 false 会使此程序集中的类型

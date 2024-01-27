@@ -22,7 +22,7 @@ namespace Taurus.Plugin.Idempotent
                 //自定义路径
                 path = AppConfig.WebRootPath + path.TrimStart('/', '\\');
             }
-            folder = path.TrimEnd('/', '\\') + "/TaurusFileLock/";
+            folder = path.TrimEnd('/', '\\') + "/TaurusFileIdempotent/";
             if (!System.IO.Directory.Exists(folder))
             {
                 System.IO.Directory.CreateDirectory(folder);
@@ -35,7 +35,7 @@ namespace Taurus.Plugin.Idempotent
                 return _instance;
             }
         }
-        public override IdempotentType LockType
+        public override IdempotentType IdempotentType
         {
             get
             {
@@ -87,13 +87,8 @@ namespace Taurus.Plugin.Idempotent
     /// </summary>
     internal partial class FileIdempotent
     {
-        public override bool Lock(string key)
-        {
-            return Lock(key, 0);
-        }
         public override bool Lock(string key, double keepMinutes)
         {
-            key = "I_" + key;
             if (keepMinutes > 0)
             {
                 string path = folder + key + ".lock";

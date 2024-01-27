@@ -94,7 +94,5 @@ namespace Taurus.Plugin.Idempotent
                 AppConfig.SetApp("Idempotent.Path", value);
             }
         }
-
-
     }
 }

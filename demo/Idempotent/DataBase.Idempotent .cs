@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
-using CYQ.Data;
 using Taurus.Plugin.Idempotent;
 namespace DistributedLockTest
 {
